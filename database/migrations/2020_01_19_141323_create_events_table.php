@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('image');
             $table->string('date');
             $table->string('description')->nullable();
+            $table->string('lien_formulaire')->nullable();
             $table->timestamps();
         });
     }

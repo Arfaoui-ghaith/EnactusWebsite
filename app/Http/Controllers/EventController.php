@@ -40,6 +40,7 @@ class EventController extends Controller
             'title' => $request->get('title'),
             'date' => $request->get('date'),
             'image' => $request->get('image'),
+            'lien_formulaire' => $request->get('lien_formulaire'),
             'description' => $request->get('description')
            
         ]);
@@ -82,7 +83,8 @@ class EventController extends Controller
             'title' => $request->get('title'),
             'date' =>  $request->get('date'),
             'image' => $request->get('image'),
-            'description' => $request->get('description')
+            'description' => $request->get('description'),
+            'lien_formulaire' => $request->get('lien_formulaire')
            
         ]);
 
@@ -100,5 +102,9 @@ class EventController extends Controller
         $event->delete();
 
         return redirect()->route('event.index')->withStatus(__('Event successfully deleted.'));
+    }
+
+    public function events(){
+        return response()->json(Event::get(), 200);
     }
 }

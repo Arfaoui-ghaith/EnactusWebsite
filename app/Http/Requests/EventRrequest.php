@@ -38,6 +38,10 @@ class EventRrequest extends FormRequest
             'description' => [
                 'nullable'
             ],
+            'lien_formulaire' => [
+                'nullable' , 'url'
+
+            ]
         ];
     }
 }

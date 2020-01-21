@@ -18,3 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('members','MemberController@members');
+Route::get('projects','ProjectController@projects');
+Route::get('partners','PartnerController@partners');
+Route::get('events','EventController@events');

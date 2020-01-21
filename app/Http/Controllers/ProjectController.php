@@ -102,4 +102,8 @@ class ProjectController extends Controller
 
         return redirect()->route('project.index')->withStatus(__('Project successfully deleted.'));
     }
+
+    public function projects(){
+        return response()->json(Project::get(), 200);
+    }
 }

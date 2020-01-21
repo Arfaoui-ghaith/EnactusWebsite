@@ -97,4 +97,8 @@ class PartnerController extends Controller
 
         return redirect()->route('partner.index')->withStatus(__('Partner successfully deleted.'));
     }
+
+    public function partners(){
+        return response()->json(Partner::get(), 200);
+    }
 }

@@ -13,7 +13,7 @@
           </div>
           <div class="card-body">
             <div class="col-12 text-right">
-                    <a href="{{ route('event.create') }}" class="btn btn-sm btn-primary">{{ __('Add project') }}</a>
+                    <a href="{{ route('event.create') }}" class="btn btn-sm btn-primary">{{ __('Add Event') }}</a>
                   </div>
             <div class="table-responsive">
               <table class="table">

@@ -33,7 +33,7 @@ class EventRrequest extends FormRequest
                 'required'
             ],
             'date' => [
-                'required' , 'date'
+                'required'
             ],
             'description' => [
                 'nullable'

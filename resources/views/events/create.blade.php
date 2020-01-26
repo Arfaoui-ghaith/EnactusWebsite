@@ -50,17 +50,18 @@
                 </div>
 
 
-                <div class="row">
+                 <div class="row">
                   <label class="col-sm-2 col-form-label">{{ __('Date Event') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('date') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" id="input-date" type="text" value="{{ old('date') }}" placeholder="Example Y-M-D hh:mm:ss" aria-required="true"/>
+                      <input class=" datepicker-here form-control{{ $errors->has('date') ? ' is-invalid' : '' }} " data-language='en' data-multiple-dates="3" data-multiple-dates-separator=", " data-timepicker="true" data-position='top left' name="date" id="input-date" type="text" value="{{ old('date') }}"  aria-required="true"/>
                       @if ($errors->has('date'))
                         <span id="date-error" class="error text-danger" for="input-date">{{ $errors->first('date') }}</span>
                       @endif
                     </div>
                   </div>
-                </div>
+                </div> 
+
 
 
 

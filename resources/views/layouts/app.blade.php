@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
     <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
+    <!-- Data Time Picker CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('air-datepicker\dist\css\datepicker.css') }}"
+
+    
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -69,9 +71,10 @@
         <script src="{{ asset('material') }}/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="{{ asset('material') }}/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
-        <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-        <script src="{{ asset('material') }}/demo/demo.js"></script>
-        <script src="{{ asset('material') }}/js/settings.js"></script>
+        <!-- Date Time Picker JS -->
+        <script src="{{ asset('air-datepicker\dist\js\datepicker.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('air-datepicker\dist\js\i18n\datepicker.en.js') }}" type="text/javascript"></script>
+        
         @stack('js')
     </body>
 </html>

@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form method="post" action="{{ route('project.update', $project) }}" autocomplete="off" class="form-horizontal">
+          <form method="post" action="{{ route('project.update', $project) }}" autocomplete="off" class="form-horizontal" enctype="multipart/form-data">
             @csrf
             @method('put')
 
@@ -74,10 +74,10 @@
                 </div>
 
                 <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Image') }}</label>
+                  <label for="input-image" class="col-sm-2 col-form-label">{{ __('Image') }}</label>
                   <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('image') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('image') ? ' is-invalid' : '' }}" name="image" id="input-image" type="text" value="{{ $project->image }}"  aria-required="true"/>
+                    <div>
+                      <input class="form-control-file" name="image" id="input-image" type="file"  />
                       @if ($errors->has('image'))
                         <span id="image-error" class="error text-danger" for="input-image">{{ $errors->first('image') }}</span>
                       @endif

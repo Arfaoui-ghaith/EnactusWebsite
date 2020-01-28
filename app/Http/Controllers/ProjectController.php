@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Project;
 use App\Http\Requests\ProjectRequest;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class ProjectController extends Controller
 {
@@ -36,10 +37,16 @@ class ProjectController extends Controller
      */
     public function store(ProjectRequest $request, Project $model)
     {
+        $imagePath = $request->image->store('projects' , 'public');
+        $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
+        $imagersize->save();
+
+        $image = 'http://127.0.0.1:8000/storage/'.$imagePath;
+
         $model->create([
             'first_title' => $request->get('first_title'),
             'title' => $request->get('title'),
-            'image' => $request->get('image'),
+            'image' => $image,
             'description' => $request->get('description'),
             'goals' => $request->get('goals'),
             
@@ -79,10 +86,22 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        if($request->hasFile('image')){
+            $imagePath = $request->image->store('members' , 'public');
+            $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
+            $imagersize->save();
+    
+            $image = 'http://127.0.0.1:8000/storage/'.$imagePath;
+    
+            $project->update([
+                'image' => $image,
+            ]);
+            }
+
         $project->update([
            'first_title' => $request->get('first_title'),
             'title' => $request->get('title'),
-            'image' => $request->get('image'),
+            
             'description' => $request->get('description'),
             'goals' => $request->get('goals'),
         ]);

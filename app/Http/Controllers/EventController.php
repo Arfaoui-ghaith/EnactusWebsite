@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use App\Http\Requests\EventRrequest;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class EventController extends Controller
 {
@@ -36,10 +37,16 @@ class EventController extends Controller
      */
     public function store(EventRrequest $request, Event $model)
     {
+        $imagePath = $request->image->store('events' , 'public');
+        $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
+        $imagersize->save();
+
+        $image = 'http://127.0.0.1:8000/storage/'.$imagePath;
+
         $model->create([
             'title' => $request->get('title'),
             'date' => $request->get('date'),
-            'image' => $request->get('image'),
+            'image' => $image,
             'lien_formulaire' => $request->get('lien_formulaire'),
             'description' => $request->get('description')
            
@@ -79,16 +86,27 @@ class EventController extends Controller
      */
     public function update(EventRrequest $request, Event $event)
     {
+        if($request->hasFile('image')){
+            $imagePath = $request->image->store('events' , 'public');
+            $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
+            $imagersize->save();
+    
+            $image = 'http://127.0.0.1:8000/storage/'.$imagePath;
+            $event->update([
+                'image' => $image
+            ]);
+    
+            }
+
         $event->update([
             'title' => $request->get('title'),
             'date' =>  $request->get('date'),
-            'image' => $request->get('image'),
             'description' => $request->get('description'),
             'lien_formulaire' => $request->get('lien_formulaire')
            
         ]);
 
-        return redirect()->route('event.index')->withStatus(__('Event successfully created.'));
+        return redirect()->route('event.index')->withStatus(__('Event successfully updated.'));
     }
 
     /**

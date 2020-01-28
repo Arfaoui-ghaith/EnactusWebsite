@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Member;
 use App\Http\Requests\MemberRequest;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+
 
 class MemberController extends Controller
 {
@@ -37,10 +39,18 @@ class MemberController extends Controller
      */
    public function store(MemberRequest $request, Member $model)
     {
+
+        $imagePath = $request->image->store('members' , 'public');
+        $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
+        $imagersize->save();
+
+        $image = 'http://127.0.0.1:8000/storage/'.$imagePath;
+    
+        
         $model->create([
             'name' => $request->get('name'),
             'role' => $request->get('role'),
-            'image' => $request->get('image'),
+            'image' => $image,
             'description' => $request->get('description'),
             'facebook' => $request->get('facebook'),
             'instagram' => $request->get('instagram'),
@@ -82,10 +92,20 @@ class MemberController extends Controller
      */
     public function update(MemberRequest $request, Member $member)
     {
+        if($request->hasFile('image')){
+        $imagePath = $request->image->store('members' , 'public');
+        $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
+        $imagersize->save();
+
+        $image = 'http://127.0.0.1:8000/storage/'.$imagePath;
+
+        $member->update([
+            'image' => $image,
+        ]);
+        }
         $member->update([
             'name' => $request->get('name'),
             'role' => $request->get('role'),
-            'image' => $request->get('image'),
             'description' => $request->get('description'),
             'facebook' => $request->get('facebook'),
             'instagram' => $request->get('instagram'),

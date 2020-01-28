@@ -33,7 +33,7 @@ class MemberRequest extends FormRequest
                 'required'
             ],
             'image' => [
-                'required' , 'url'
+                'nullable' , 'image' 
             ],
             'description' => [
                 'required'

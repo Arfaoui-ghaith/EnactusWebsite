@@ -33,7 +33,7 @@ class ProjectRequest extends FormRequest
                 'required'
             ],
             'image' => [
-                'required' , 'url'
+                'nullable' , 'image'  
             ],
             'description' => [
                 'required'

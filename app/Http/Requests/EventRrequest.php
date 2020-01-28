@@ -30,7 +30,7 @@ class EventRrequest extends FormRequest
                 'required'
             ],
             'image' => [
-                'required'
+                'nullable' , 'image'
             ],
             'date' => [
                 'required'

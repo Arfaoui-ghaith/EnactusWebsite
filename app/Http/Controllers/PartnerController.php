@@ -84,7 +84,7 @@ class PartnerController extends Controller
     public function update(PartnerRequest $request, Partner $partner)
     {
         if($request->hasFile('image')){
-            $imagePath = $request->image->store('members' , 'public');
+            $imagePath = $request->image->store('partner' , 'public');
             $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
             $imagersize->save();
     

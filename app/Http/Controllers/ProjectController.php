@@ -87,7 +87,7 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         if($request->hasFile('image')){
-            $imagePath = $request->image->store('members' , 'public');
+            $imagePath = $request->image->store('projects' , 'public');
             $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
             $imagersize->save();
     

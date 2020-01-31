@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Partner;
 use App\Http\Requests\PartnerRequest;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
+//use Intervention\Image\Facades\Image;
 
 class PartnerController extends Controller
 {
@@ -38,10 +38,10 @@ class PartnerController extends Controller
     public function store(PartnerRequest $request, Partner $model)
     {
         $imagePath = $request->image->store('partner' , 'public');
-        $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
-        $imagersize->save();
+        //$imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
+        //$imagersize->save();
 
-        $image = 'http://127.0.0.1:8000/storage/'.$imagePath;
+        $image = 'storage/'.$imagePath;
 
         $model->create([
             'name' => $request->get('name'),
@@ -85,10 +85,10 @@ class PartnerController extends Controller
     {
         if($request->hasFile('image')){
             $imagePath = $request->image->store('partner' , 'public');
-            $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
-            $imagersize->save();
+           // $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
+           // $imagersize->save();
     
-            $image = 'http://127.0.0.1:8000/storage/'.$imagePath;
+            $image = 'storage/'.$imagePath;
     
             $partner->update([
                 'image' => $image,

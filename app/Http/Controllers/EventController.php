@@ -93,7 +93,8 @@ class EventController extends Controller
     
             $image = 'storage/'.$imagePath;
             $event->update([
-                'image' => $image
+                //'image' => $image
+                'image' => $imagePath
             ]);
     
             }

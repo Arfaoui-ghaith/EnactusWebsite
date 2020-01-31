@@ -94,9 +94,10 @@ class MemberController extends Controller
     {
         if($request->hasFile('image')){
         $imagePath = $request->image->store('members' , 'public');
-        
+        $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
+        $imagersize->save();
 
-        $image = 'http://enactusisetch.herokuapp.com/storage/'.$imagePath;
+        $image = 'http://127.0.0.1:8000/storage/'.$imagePath;
 
         $member->update([
             'image' => $image,

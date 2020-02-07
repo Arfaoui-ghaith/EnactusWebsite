@@ -41,7 +41,7 @@ class EventController extends Controller
        // $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
        // $imagersize->save();
 
-        $image = 'storage/'.$imagePath;
+        $image = 'localhost:8000/storage/'.$imagePath;
 
         $model->create([
             'title' => $request->get('title'),
@@ -91,10 +91,9 @@ class EventController extends Controller
            // $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
            // $imagersize->save();
     
-            $image = 'storage/'.$imagePath;
+            $image = 'localhost:8000/storage/'.$imagePath;
             $event->update([
-                //'image' => $image
-                'image' => $imagePath
+                'image' => $image
             ]);
     
             }

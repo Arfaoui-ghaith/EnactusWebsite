@@ -44,7 +44,7 @@ class MemberController extends Controller
         //$imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
         //$imagersize->save();
 
-        $image = 'storage/'.$imagePath;
+        $image = 'http://localhost:8000/storage/'.$imagePath;
     
         
         $model->create([
@@ -97,7 +97,7 @@ class MemberController extends Controller
         //$imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
         //$imagersize->save();
 
-        $image = 'storage/'.$imagePath;
+        $image = 'http://localhost:8000/storage/'.$imagePath;
 
         $member->update([
             'image' => $image,

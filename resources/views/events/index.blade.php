@@ -55,7 +55,7 @@
                       {{ $event->id }}
                     </td>
                     <td>
-                      <img src="/storage/{{ $event->image }}" class="w-100 rounded" style="max-width:100px"/>
+                      <img src="{{ $event->image }}" class="w-100 rounded" style="max-width:100px"/>
                     </td>
                     <td>
                       {{ $event->title }}

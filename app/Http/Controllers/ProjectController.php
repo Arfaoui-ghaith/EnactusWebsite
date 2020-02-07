@@ -41,7 +41,7 @@ class ProjectController extends Controller
        // $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
        // $imagersize->save();
 
-        $image = 'storage/'.$imagePath;
+        $image = 'http://localhost:8000/storage/'.$imagePath;
 
         $model->create([
             'first_title' => $request->get('first_title'),
@@ -91,7 +91,7 @@ class ProjectController extends Controller
           //  $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
            // $imagersize->save();
     
-            $image = 'storage/'.$imagePath;
+            $image = 'http://localhost:8000/storage/'.$imagePath;
     
             $project->update([
                 'image' => $image,

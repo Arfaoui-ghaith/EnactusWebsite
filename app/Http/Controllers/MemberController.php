@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Member;
 use App\Http\Requests\MemberRequest;
 use Illuminate\Http\Request;
-//use Intervention\Image\Facades\Image;
+use Intervention\Image\Facades\Image;
 
 
 class MemberController extends Controller
@@ -41,8 +41,8 @@ class MemberController extends Controller
     {
 
         $imagePath = $request->image->store('members' , 'public');
-        //$imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
-        //$imagersize->save();
+        $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
+        $imagersize->save();
 
         $image = 'http://localhost:8000/storage/'.$imagePath;
     
@@ -94,8 +94,8 @@ class MemberController extends Controller
     {
         if($request->hasFile('image')){
         $imagePath = $request->image->store('members' , 'public');
-        //$imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
-        //$imagersize->save();
+        $imagersize = Image::make(public_path("storage/{$imagePath}"))->fit(1000 , 1000);
+        $imagersize->save();
 
         $image = 'http://localhost:8000/storage/'.$imagePath;
 

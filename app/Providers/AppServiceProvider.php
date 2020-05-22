@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Brand;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('*', function ($view)
+        {
+            if(!$view->offsetExists('brandsmenu'))
+            {
+                $brandsmenu = Brand::all();
+                $view->with('brandsmenu', $brandsmenu);
+            }
+        });
     }
 }

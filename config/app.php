@@ -139,6 +139,12 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        App\Providers\AppServiceProvider ::class,
+        App\Providers\brandtabscollection ::class,
+        App\Providers\tablettescollection ::class,
+        App\Providers\brandcomputerscollection ::class,
+        App\Providers\smartphonescollection ::class,
+        App\Providers\computerscollection ::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,

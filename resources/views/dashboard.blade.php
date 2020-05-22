@@ -14,7 +14,7 @@
                 <i class="material-icons">content_paste</i>
               </div>
               <p class="card-category">Administrative Members</p>
-              <h3 class="card-title">{{ $members }}
+              <h3 class="card-title">
                 <small>+</small>
               </h3>
             </div>
@@ -32,7 +32,7 @@
                 <i class="material-icons">library_books</i>
               </div>
               <p class="card-category">Projects</p>
-              <h3 class="card-title">{{ $projects }}<small>+</small></h3> 
+              <h3 class="card-title"><small>+</small></h3> 
             </div>
             <div class="card-footer">
              
@@ -48,7 +48,7 @@
                 <i class="material-icons">bubble_chart</i>
               </div>
               <p class="card-category">Events</p>
-              <h3 class="card-title">{{ $events }}<small>+</small></h3>
+              <h3 class="card-title"><small>+</small></h3>
             </div>
             <div class="card-footer">
               
@@ -64,7 +64,7 @@
                 <i class="material-icons">language</i>
               </div>
               <p class="card-category">Partners</p>
-              <h3 class="card-title">{{ $partners }}<small>+</small></h3>
+              <h3 class="card-title"><small>+</small></h3>
             </div>
             <div class="card-footer">
              

@@ -21,3 +21,5 @@ Route::get('members','MemberController@members');
 Route::get('projects','ProjectController@projects');
 Route::get('partners','PartnerController@partners');
 Route::get('events','EventController@events');
+Route::get('brands','BrandController@brands');
+Route::get('reparations','ReparationController@reparations');
